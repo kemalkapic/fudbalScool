@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KasaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,8 @@ Route::group([ 'middleware' => 'admin'], function(){
  Route::get('/admin/talenti/edit/{id}', [App\Http\Controllers\AdminController::class, 'talentEdit'])->name('talentEdit');
  Route::post('/admin/talenti/update/{id}', [App\Http\Controllers\AdminController::class, 'talentUpdate'])->name('talentUpdate');
 
- Route::get('/admin/kasa', [App\Http\Controllers\AdminController::class, 'getCashRegister'])->name('kasa');
+ Route::get('/admin/kasa', [App\Http\Controllers\KasaController::class, 'getCashRegister'])->name('kasa');
+ Route::get('/admin/talenti/destroy/{id}', [App\Http\Controllers\KasaController::class, 'talentDelete'])->name('talentDelete');
 
 });
 

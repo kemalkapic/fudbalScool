@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Talent;
-use App\Models\Kasa;
+
 
 class AdminController extends Controller
 {
@@ -91,19 +91,5 @@ class AdminController extends Controller
     {
         Talent::where('id', $id)->update(array('status' => 'Obrisan'));
         return redirect('admin/talenti');
-    }
-
-    //--------------------------------CASH REGISTER METHODS-----------------------------------------//
-
-    public function getCashRegister()
-    {
-        $kasa = Kasa::all();
-        $talent = Talent::all();
-        return view('kasa', ['talents' => $talent, 'kasa' => $kasa]);
-    }
-    public function kasaDelete()
-    {
-        Kasa::where('id', $id)->update(array('status' => 'Obrisan'));
-        return redirect('admin/kasa');
     }
 }
