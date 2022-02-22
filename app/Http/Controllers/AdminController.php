@@ -101,7 +101,7 @@ class AdminController extends Controller
         $talent = Talent::all();
         return view('kasa', ['talents' => $talent, 'kasa' => $kasa]);
     }
-    public function kasaDeletee()
+    public function kasaDelete()
     {
         Kasa::where('id', $id)->update(array('status' => 'Obrisan'));
         return redirect('admin/kasa');
