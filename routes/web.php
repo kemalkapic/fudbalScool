@@ -29,8 +29,10 @@ Route::group([ 'middleware' => 'admin'], function(){
  Route::get('/admin/talenti/edit/{id}', [App\Http\Controllers\AdminController::class, 'talentEdit'])->name('talentEdit');
  Route::post('/admin/talenti/update/{id}', [App\Http\Controllers\AdminController::class, 'talentUpdate'])->name('talentUpdate');
 
- Route::get('/admin/kasa', [App\Http\Controllers\KasaController::class, 'getCashRegister'])->name('kasa');
- Route::get('/admin/talenti/destroy/{id}', [App\Http\Controllers\KasaController::class, 'talentDelete'])->name('talentDelete');
+ Route::get('/admin/kasa', [App\Http\Controllers\KasaController::class, 'kasa'])->name('kasa');
+ Route::get('/admin/kasa/uplata', [App\Http\Controllers\KasaController::class, 'uplata'])->name('uplata');
+ Route::post('/admin/kasa/add', [App\Http\Controllers\AdminController::class, 'add'])->name('addKasa');
+ Route::get('/admin/kasa/destroy/{id}', [App\Http\Controllers\KasaController::class, 'delete'])->name('delete');
 
 });
 

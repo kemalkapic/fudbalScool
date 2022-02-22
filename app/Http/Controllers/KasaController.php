@@ -15,13 +15,18 @@ class KasaController extends Controller
     {
         $this->middleware('auth');
     }
-    public function getCashRegister()
+    public function kasa()
     {
         $kasa = Kasa::all();
         $talent = Talent::all();
         return view('kasa', ['talents' => $talent, 'kasa' => $kasa]);
     }
-    public function kasaDelete()
+    public function uplata()
+    {
+        $talenti = Talent::all();
+        return view('kasauplata', ['talenti' => $talenti]);
+    }
+    public function delete($id)
     {
         Kasa::where('id', $id)->update(array('status' => 'Obrisan'));
         return redirect('admin/kasa');

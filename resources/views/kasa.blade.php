@@ -22,7 +22,7 @@
                 <h3 class="card-title">Lista svih uplata i isplata</h3>
               </div>
               <div class="card-header">
-                <a class="btn btn-success" href="/admin/kasauplata">Dodaj uplatu/isplatu</a>
+                <a class="btn btn-success" href="/admin/kasa/uplata">Dodaj uplatu/isplatu</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
