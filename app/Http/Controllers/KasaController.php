@@ -17,7 +17,7 @@ class KasaController extends Controller
     }
     public function kasa()
     {
-        $kasa = Kasa::all();
+        $kasa = Kasa::where("status", "Aktivan")->get();
         $talent = Talent::all();
         return view('kasa', ['talents' => $talent, 'kasa' => $kasa]);
     }
@@ -25,6 +25,38 @@ class KasaController extends Controller
     {
         $talenti = Talent::all();
         return view('kasauplata', ['talenti' => $talenti]);
+    }
+    public function add(Request $request)
+    {
+        $validated = $request->validate([
+        'tipprometa' => 'required',
+        'datum' => 'required',
+        'status' => 'required',
+        'iznos' => 'required',
+        'opis' => 'required',
+        ]);
+
+        $tip = $request->input('tipprometa');
+        $datum = $request->input('datum');
+        $status = $request->input('status');
+        $iznos = $request->input('iznos');
+        $opis = $request->input('opis');
+        $talent_id = $request->input('talent');
+        $uplatitelj = $request->input('uplatitelj');
+        $zamjesec = $request->input('month');
+        
+        Kasa::create([
+            'talent_id' => $talent_id,
+            'uplatitelj' => $uplatitelj,
+            'tip' => $tip,
+            'opis' => $opis,
+            'mjesecGodina' => $zamjesec,
+            'iznos' => $iznos,
+            'datum' => $datum,
+            'status' => $status,
+        ]);
+
+        return redirect('admin/kasa');
     }
     public function delete($id)
     {

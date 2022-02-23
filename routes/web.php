@@ -31,7 +31,7 @@ Route::group([ 'middleware' => 'admin'], function(){
 
  Route::get('/admin/kasa', [App\Http\Controllers\KasaController::class, 'kasa'])->name('kasa');
  Route::get('/admin/kasa/uplata', [App\Http\Controllers\KasaController::class, 'uplata'])->name('uplata');
- Route::post('/admin/kasa/add', [App\Http\Controllers\AdminController::class, 'add'])->name('addKasa');
+ Route::post('/admin/kasa/add', [App\Http\Controllers\KasaController::class, 'add'])->name('addKasa');
  Route::get('/admin/kasa/destroy/{id}', [App\Http\Controllers\KasaController::class, 'delete'])->name('delete');
 
 });

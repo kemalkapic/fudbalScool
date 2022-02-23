@@ -47,19 +47,19 @@
                     @if($uplata->talent_id == NULL)
                             <td>{{ $uplata->uplatitelj }}</td>
                     @else       
-                            @foreach($talents as $talent)
-                                  @if($talent->id == $uplata->talent_id)
-                                        <td><b>{{ $talent->prezime }}</b> ({{ $talent->ime_roditelja }}) <b>{{ $talent->ime }}</b> </td>
-                                  @endif
-                            @endforeach  
+                        @foreach($talents as $talent)
+                          @if($talent->id == $uplata->talent_id)
+                             <td><b>{{ $talent->prezime }}</b> ({{ $talent->ime_roditelja }}) <b>{{ $talent->ime }}</b></td>
+                          @endif
+                        @endforeach  
                     @endif
                     <td>{{ $uplata->opis}}</td>
                     <td>{{ $uplata->datum}}</td>
-                    <td>{{ $uplata->iznos}}</td>
+                    <td>{{ number_format($uplata->iznos, 2) }} KM</td>
                     <td>{{ $uplata->status }}</td>
                     <td style="width: 100px;">
                       <div class="btn-group">
-                      <a class="btn btn-inline btn-warning" title="Uredi" href="/admin/kasa/edit/{{ $uplata->id }}">Uredi</a>
+                      <a class="btn btn-inline btn-warning" title="Uredi" href="#">Uredi</a>
                       <a class="btn btn-inline btn-danger" title="Obriši" onclick="deleteItem({{ $uplata->id }})">Briši</a>
                       </div>
                     </td>

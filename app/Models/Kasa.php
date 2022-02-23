@@ -11,10 +11,14 @@ class Kasa extends Model
 
     protected $table = 'kasa';
     protected $fillable = [
+        'tip',
         'opis',
         'iznos',
         'datum',
         'status',
+        'mjesecGodina',
+        'talent_id',
+        'uplatitelj',
     ];
 
     public function talent()
